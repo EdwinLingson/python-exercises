@@ -1,4 +1,5 @@
 #!/usr/bin/env/python
+import sys
 class Gate(object):
     """ class representing a gate. It can be any gate. """
 
@@ -59,35 +60,36 @@ class NorGate(OrGate,NotGate):
       
 
 
-def Gates(**kwargs):
-	gate=kwargs['Gates']
+
+	#gate=kwargs['Gates']
 	#print (kwargs['Gates'])
 	#print ("oper = ",oper)
-	a=kwargs['input1']
-	b=kwargs['input2']
+	#a=kwargs['input1']
+	#b=kwargs['input2']
+d=sys.argv[3:][0].split('=')
+b=d[1]
+d=sys.argv[2:][0].split('=')
+a=d[1]
+d=sys.argv[1:][0].split('=')
+gate=d[1]
 	
-	if(gate=='not'):
-		x=NotGate(a,b)
-		x.logic()
-		print ("Not Operation: of ",a," and ",b," is ",x.output)
-	if(gate=='and'):
-		x=AndGate(a,b)
-		x.logic()
-		print ("And Operation: of ",a," and ",b," is ",x.output)
-	if(gate=='or'):
-		x=OrGate(a,b)
-		x.logic()
-		print ("Or Operation: of ",a," and ",b," is ",x.output)
-	if(gate=='nor'):
-		x=NorGate(a,b)
-		x.logic()
-		print ("Nor Operation: of ",a," and ",b," is ",x.output)
-	if(gate=='nand'):
-		x=NandGate(a,b)
-		x.logic()
-		print ("Nand Operation: of ",a," and ",b," is ",x.output)	
-
-
-#ase(Gates='not',input1=1,input2=0)
-#if __name__=="__main__":
-#	ase(Gates='and',input1=1,input2=0)
+if(gate=='not'):
+	x=NotGate(a,b)
+	x.logic()
+	print ("Not Operation: of ",a," and ",b," is ",x.output)
+if(gate=='and'):
+	x=AndGate(a,b)
+	x.logic()
+	print ("And Operation: of ",a," and ",b," is ",x.output)
+if(gate=='or'):
+	x=OrGate(a,b)
+	x.logic()
+	print ("Or Operation: of ",a," and ",b," is ",x.output)
+if(gate=='nor'):
+	x=NorGate(a,b)
+	x.logic()
+	print ("Nor Operation: of ",a," and ",b," is ",x.output)
+if(gate=='nand'):
+	x=NandGate(a,b)
+	x.logic()
+	print ("Nand Operation: of ",a," and ",b," is ",x.output)	
